@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import NavLinks from './NavLinks';
+import AuthCTA from './AuthCTA';
 
 const Navbar = () => {
     return (
@@ -16,6 +17,9 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <NavLinks/>
+
+          {/* Auth CTA */}
+          <AuthCTA/>
         </div>
       </header>
     );
