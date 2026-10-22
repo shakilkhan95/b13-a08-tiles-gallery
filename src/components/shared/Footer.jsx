@@ -14,7 +14,8 @@ const Footer = () => {
               TilesGallery
             </Link>
             <p className="mt-2 text-sm text-(--color-plaster)/70">
-              A curated showcase of tile designs for <br/> every room and surface.
+              A curated showcase of tile designs for <br /> every room and
+              surface.
             </p>
           </div>
 
@@ -58,6 +59,11 @@ const Footer = () => {
               info@tilesgallery.com
             </p>
           </div>
+        </div>
+
+        <div className="border-t border-(--color-plaster)/10 px-5 py-4 text-center text-xs text-(--color-plaster)/50">
+          © 2026 TilesGallery. Built for a front-end
+          learning assignment.
         </div>
       </footer>
     );
