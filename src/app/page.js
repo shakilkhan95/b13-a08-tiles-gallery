@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <div>
       {/* Hero section  */}
-      <div className="px-28 py-28 flex gap-10 flex-col lg:flex-row lg:justify-between lg:items-center">
+      <div className="p-28 flex gap-10 flex-col lg:flex-row lg:justify-between lg:items-center">
         {/* Hero Description  */}
         <div className="space-y-4 tracking-tight">
           <h1 className="text-5xl font-bold text-(--color-ink)">

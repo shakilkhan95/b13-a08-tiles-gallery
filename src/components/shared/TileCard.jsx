@@ -1,11 +1,11 @@
-import { Button, Card } from "@heroui/react";
+import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const TileCard = ({tile}) => {
   return (
-    <Card
-      className="w-full items-stretch">
-      <div className="relative w-full shrink-0 overflow-hidden rounded-2xl">
+    <Card className="w-full items-stretch rounded-md">
+      <div className="relative w-full shrink-0 overflow-hidden rounded-md">
         <Image
           alt="Cherries"
           width={100}
@@ -14,9 +14,7 @@ const TileCard = ({tile}) => {
           src={tile.image}
         />
         {!tile.inStock && (
-          <Button variant="secondary" className="absolute end-3 top-3">
-            Out of stock
-          </Button>
+          <Chip color="danger" className="absolute right-3 top-3">Out of stock</Chip>
         )}
       </div>
       <div className="flex flex-1 flex-col gap-3">
@@ -31,7 +29,9 @@ const TileCard = ({tile}) => {
           <p className="font-semibold text-lg text-(--color-glaze)">
             USD {tile.price}
           </p>
-          <Button className="w-full sm:w-auto">Apply Now</Button>
+          <Link href={`/all-tiles/${tile.id}`}>
+            <Button variant="secondary" className="w-full sm:w-auto">Details</Button>
+          </Link>
         </Card.Footer>
       </div>
     </Card>

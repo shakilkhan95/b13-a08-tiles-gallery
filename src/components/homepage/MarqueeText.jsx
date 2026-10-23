@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 const MarqueeText = async ({ featuredTiles }) => {
 
   return (
-    <div className="border-y border-(--color-grout)/40 bg-(--color-base-200) py-2.5">
+    <div className="border-y border-(--color-grout)/40 bg-white/80 py-2.5">
       <Marquee pauseOnHover>
         {featuredTiles.map((tile) => (
           <span
