@@ -1,9 +1,11 @@
 "use client";
 
+import { Spinner } from "@heroui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Suspense } from "react";
 
-const NavLinks = () => {
+const NavLinksContent = () => {
     const pathname = usePathname();
     return (
       <ul className="flex gap-4 text-(--color-ink) font-semibold">
@@ -27,4 +29,17 @@ const NavLinks = () => {
     );
 };
 
-export default NavLinks;
+
+export default function NavLinks () {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex items-center gap-4">
+          <Spinner />
+        </div>
+      }
+    >
+      <NavLinksContent />
+    </Suspense>
+  );
+};

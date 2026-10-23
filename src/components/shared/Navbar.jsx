@@ -12,7 +12,7 @@ const Navbar = () => {
           href="/"
           className="text-xl font-semibold tracking-tight text-(--color-ink)"
         >
-          Tiles<span className="text(--color-glaze)">Gallery</span>
+          Tiles<span className="text-(--color-glaze)">Gallery</span>
         </Link>
 
         {/* Navigation Links */}
