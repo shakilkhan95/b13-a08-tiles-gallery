@@ -13,9 +13,12 @@ const TileCard = ({tile}) => {
           className=" inset-0 h-full w-full relative object-cover"
           src={tile.image}
         />
-        {!tile.inStock && (
-          <Chip color="danger" className="absolute right-3 top-3">Out of stock</Chip>
-        )}
+        <Chip
+          color={tile.inStock ? "secondary" : "danger"}
+          className="absolute right-3 top-3"
+        >
+          {tile.inStock ? "In Stock" : "Out of Stock"}
+        </Chip>
       </div>
       <div className="flex flex-1 flex-col gap-3">
         <Card.Header className="gap-1">
@@ -27,10 +30,12 @@ const TileCard = ({tile}) => {
         </Card.Header>
         <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-semibold text-lg text-(--color-glaze)">
-            USD {tile.price}
+            {tile.currency} {tile.price}
           </p>
-          <Link href={`/all-tiles/${tile.id}`}>
-            <Button variant="secondary" className="w-full sm:w-auto">Details</Button>
+          <Link href={`/tile/${tile.id}`}>
+            <Button variant="secondary" className="w-full sm:w-auto">
+              Details
+            </Button>
           </Link>
         </Card.Footer>
       </div>
