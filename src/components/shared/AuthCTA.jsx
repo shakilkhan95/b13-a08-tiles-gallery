@@ -7,21 +7,23 @@ const AuthCTA = () => {
     return (
       <div>
         {isLoggedIn ? (
-          <Link href="/login">
+          <Link href="/signin">
             <button
               type="button"
+              size="sm"
               className="px-4 py-2 tracking-tight bg-(--color-glaze) text-(--color-porcelain) rounded-md cursor-pointer"
             >
               Logout
             </button>
           </Link>
         ) : (
-          <Link href="/login">
+          <Link href="/signin">
             <button
               type="button"
+              size="sm"
               className="px-4 py-2 tracking-tight bg-(--color-glaze) text-(--color-porcelain) rounded-md cursor-pointer"
             >
-              Login
+              Sign In
             </button>
           </Link>
         )}
