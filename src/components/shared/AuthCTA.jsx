@@ -1,30 +1,32 @@
+"use client"
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client"
+import { Avatar, Button } from "@heroui/react";
 
-
+const handleSignOut = async() => {
+  await authClient.signOut();
+}
 
 const AuthCTA = () => {
-  const isLoggedIn = false;
+  const { data: session } = authClient.useSession();
     return (
       <div>
-        {isLoggedIn ? (
-          <Link href="/signin">
-            <button
-              type="button"
-              size="sm"
-              className="px-4 py-2 tracking-tight bg-(--color-glaze) text-(--color-porcelain) rounded-md cursor-pointer"
-            >
-              Logout
-            </button>
-          </Link>
+        {session ? (
+          <div className="flex gap-3">
+            <Avatar size="sm">
+              <Avatar.Image
+                alt={session?.user?.name}
+                src={session?.user?.image}
+              />
+              <Avatar.Fallback>{session?.user?.name.charAt(0)}</Avatar.Fallback>
+            </Avatar>
+            <Button size="sm" onClick={handleSignOut}>
+              Sign Out
+            </Button>
+          </div>
         ) : (
           <Link href="/signin">
-            <button
-              type="button"
-              size="sm"
-              className="px-4 py-2 tracking-tight bg-(--color-glaze) text-(--color-porcelain) rounded-md cursor-pointer"
-            >
-              Sign In
-            </button>
+            <Button size="sm">Sign In</Button>
           </Link>
         )}
       </div>

@@ -1,11 +1,13 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@heroui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 
 const NavLinksContent = () => {
+  const { data: session } = authClient.useSession();
     const pathname = usePathname();
     return (
       <ul className="flex gap-4 text-(--color-ink) font-semibold">
@@ -25,6 +27,16 @@ const NavLinksContent = () => {
             All Tiles
           </Link>
         </li>
+        {session && (
+          <li>
+            <Link
+              href="/profile"
+              className={`${pathname === "/profile" ? "text-(--color-glaze) border-b-2 border-(--color-glaze)" : ""}`}
+            >
+              Profile
+            </Link>
+          </li>
+        )}
       </ul>
     );
 };
