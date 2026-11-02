@@ -9,7 +9,7 @@ const MarqueeText = async ({ featuredTiles }) => {
           <span
             className="text-(--color-ink)/80 font-medium text-xl mr-2"
             key={tile.id}
-          >{`${tile.title}: "${tile.description}"`}</span>
+          >New Arrivals: [{`${tile.title}`}] | Weekly Feature: Modern Geometric Patterns | Join the Community...</span>
         ))}
       </Marquee>
     </div>

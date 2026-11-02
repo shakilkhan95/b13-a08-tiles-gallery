@@ -30,10 +30,10 @@ const NavLinksContent = () => {
         {session && (
           <li>
             <Link
-              href="/profile"
-              className={`${pathname === "/profile" ? "text-(--color-glaze) border-b-2 border-(--color-glaze)" : ""}`}
+              href="/my-profile"
+              className={`${pathname === "/my-profile" ? "text-(--color-glaze) border-b-2 border-(--color-glaze)" : ""}`}
             >
-              Profile
+              My Profile
             </Link>
           </li>
         )}

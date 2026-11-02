@@ -62,8 +62,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-(--color-plaster)/10 px-5 py-4 text-center text-xs text-(--color-plaster)/50">
-          © 2026 TilesGallery. Built for a front-end
-          learning assignment.
+          © 2026 TilesGallery. Discover Your Perfect Aesthetic.
         </div>
       </footer>
     );
