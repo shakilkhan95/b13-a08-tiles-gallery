@@ -7,11 +7,10 @@ import Link from "next/link";
 const MyProfilePage = () => {
     const { data: session } = authClient.useSession();
     const user = session?.user;
-    console.log(user)
     return (
       <div className="p-28">
         {session ? (
-          <Card className="flex gap-3 p-8 justify-center items-center">
+          <Card className="flex w- gap-3 p-8 justify-center items-center">
             <Image
               alt={user?.name || "User Avatar"}
               width={100}
