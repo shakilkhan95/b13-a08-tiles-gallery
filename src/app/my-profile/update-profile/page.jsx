@@ -1,14 +1,34 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Button, Form, Input, Label, TextField } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 const UpdateProfilePage = () => {
+  const router = useRouter()
+  const handleUpdate = async (e) => {
+      e.preventDefault();
+      const image = e.target.image.value;
+      const name = e.target.name.value;
+  
+      const {error} = await authClient.updateUser({
+        name,
+        image,
+      });
+      if (!error){
+        router.push("/my-profile");
+      }
+    };
+
   return (
     <div className="p-28">
       <Form
+        onSubmit={handleUpdate}
         className="flex flex-col gap-3 rounded-xl border bg-white p-4 shadow-sm"
       >
-        <h1 className="text-2xl font-semibold text-(--color-ink)/80">Update Profile</h1>
-        <TextField isRequired name="Name" type="text">
+        <h1 className="text-2xl font-semibold text-(--color-ink)/80">
+          Update Profile
+        </h1>
+        <TextField isRequired name="name" type="text">
           <Label>Name</Label>
           <Input className="bg-field" placeholder="Type your name" />
         </TextField>
