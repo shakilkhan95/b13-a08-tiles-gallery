@@ -11,8 +11,11 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -22,8 +25,13 @@ const SignInPage = () => {
       email: email,
       password: password,
       rememberMe: true,
-      callbackURL: "/",
     });
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Sign In Successful!");
+      router.push("/");
+    }
   };
 
   return (
