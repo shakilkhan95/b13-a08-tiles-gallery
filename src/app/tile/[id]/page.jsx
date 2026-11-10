@@ -13,7 +13,7 @@ const TileDetailsPageContent = async({params}) => {
         <Card className="w-full items-stretch md:flex-row gap-10 rounded-md">
           <div className="flex-1 relative w-full shrink-0 overflow-hidden rounded-md">
             <Image
-              alt={tile.name}
+              alt={tile.title}
               width={100}
               height={100}
               className=" inset-0 h-full w-full relative object-cover"

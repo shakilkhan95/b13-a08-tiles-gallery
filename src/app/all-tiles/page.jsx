@@ -1,6 +1,6 @@
 import TileCard from "@/components/shared/TileCard";
 import { getTilesData } from "@/lib/data";
-import { Label, SearchField } from "@heroui/react";
+import { Button, Label, SearchField } from "@heroui/react";
 
 
 const AllTilesPage = async() => {
@@ -9,12 +9,15 @@ const AllTilesPage = async() => {
       <div className="p-16 container mx-auto space-y-5">
         <h1 className="text-2xl font-semibold">All Tiles</h1>
 
-        <SearchField name="search" className="w-[280px]">
+        <SearchField name="search">
           <Label>Search</Label>
           <SearchField.Group>
             <SearchField.SearchIcon />
             <SearchField.Input placeholder="Search..." />
             <SearchField.ClearButton />
+            <Button variant="primary" className="ml-2">
+              Search
+            </Button>
           </SearchField.Group>
         </SearchField>
 
