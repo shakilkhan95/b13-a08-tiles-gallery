@@ -2,22 +2,26 @@
 import { authClient } from "@/lib/auth-client";
 import { Button, Form, Input, Label, TextField } from "@heroui/react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const UpdateProfilePage = () => {
-  const router = useRouter()
+  const router = useRouter();
   const handleUpdate = async (e) => {
-      e.preventDefault();
-      const image = e.target.image.value;
-      const name = e.target.name.value;
-  
-      const {error} = await authClient.updateUser({
-        name,
-        image,
-      });
-      if (!error){
-        router.push("/my-profile");
-      }
-    };
+    e.preventDefault();
+    const image = e.target.image.value;
+    const name = e.target.name.value;
+
+    const { error } = await authClient.updateUser({
+      name,
+      image,
+    });
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Profile updated successfully!");
+      router.push("/my-profile");
+    }
+  };
 
   return (
     <div className="p-28">
