@@ -12,6 +12,7 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const SignUpPage = () => {
@@ -36,6 +37,12 @@ const SignUpPage = () => {
       router.push("/");
     }
   };
+
+  const handleGoogleSignUp = async() => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  }
 
   return (
     <Form
@@ -105,6 +112,15 @@ const SignUpPage = () => {
           </Link>
         </p>
       </div>
+      <h1 className="text-lg font-medium border-b text-center pb-2.5">OR</h1>
+      <Button
+        onClick={handleGoogleSignUp}
+        className="w-full"
+        variant="tertiary"
+      >
+        <FcGoogle />
+        Sign Up with Google
+      </Button>
     </Form>
   );
 };
