@@ -2,9 +2,13 @@
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client"
 import { Avatar, Button } from "@heroui/react";
+import { toast } from "react-toastify";
 
 const handleSignOut = async() => {
-  await authClient.signOut();
+  const {error} = await authClient.signOut();
+  if(!error){
+    toast.warning("Sign Out Successful!");
+  }
 }
 
 const AuthCTA = () => {

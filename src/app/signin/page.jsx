@@ -39,6 +39,7 @@ const SignInPage = () => {
       const data = await authClient.signIn.social({
         provider: "google",
       });
+      console.log(data);
     }
 
   return (
