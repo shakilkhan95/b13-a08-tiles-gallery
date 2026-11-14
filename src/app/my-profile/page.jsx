@@ -10,7 +10,7 @@ const MyProfilePage = () => {
     return (
       <div className="p-10 md:p-28 mt-10 md:mt-0">
         {session ? (
-          <Card className="flex w-full gap-3 p-8 justify-center items-center">
+          <Card className="flex w-11/12 max-w-xl mx-auto gap-3 p-8 justify-center items-center">
             <Image
               src={user?.image}
               alt={user?.name || "User Avatar"}
