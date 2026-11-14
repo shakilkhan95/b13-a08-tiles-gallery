@@ -8,13 +8,19 @@ const UpdateProfilePage = () => {
   const router = useRouter();
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const image = e.target.image.value;
-    const name = e.target.name.value;
+    const image = e.target.image.value.trim();
+    const name = e.target.name.value.trim();
 
-    const { error } = await authClient.updateUser({
-      name,
-      image,
-    });
+    const updatedData = {};
+    if(name) updatedData.name = name;
+    if(image) updatedData.image = image;
+
+    if (Object.keys(updatedData).length === 0) {
+      toast.info("Nothing to update!");
+      return;
+    }
+
+    const { error } = await authClient.updateUser(updatedData);
     if (error) {
       toast.error(error.message);
     } else {
@@ -32,11 +38,11 @@ const UpdateProfilePage = () => {
         <h1 className="text-2xl font-semibold text-(--color-ink)/80">
           Update Profile
         </h1>
-        <TextField isRequired name="name" type="text">
+        <TextField name="name" type="text">
           <Label>Name</Label>
           <Input className="bg-field" placeholder="Type your name" />
         </TextField>
-        <TextField isRequired name="image" type="text">
+        <TextField name="image" type="text">
           <Label>Image Url</Label>
           <Input className="bg-field" placeholder="Type the image URL" />
         </TextField>
