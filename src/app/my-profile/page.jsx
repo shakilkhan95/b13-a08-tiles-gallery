@@ -8,16 +8,16 @@ const MyProfilePage = () => {
     const { data: session } = authClient.useSession();
     const user = session?.user;
     return (
-      <div className="p-28">
+      <div className="p-10 md:p-28 mt-10 md:mt-0">
         {session ? (
-          <Card className="flex w- gap-3 p-8 justify-center items-center">
+          <Card className="flex w-full gap-3 p-8 justify-center items-center">
             <Image
+              src={user?.image}
               alt={user?.name || "User Avatar"}
               width={100}
               height={100}
               className="h-16 w-16 shrink-0 rounded-xl object-cover select-none sm:h-20 sm:w-20"
               loading="lazy"
-              src={user?.image}
             />
             <div className="flex flex-1 flex-col justify-center gap-1">
               <Card.Title className="text-sm">{user?.name}</Card.Title>
@@ -31,7 +31,7 @@ const MyProfilePage = () => {
             </Link>
           </Card>
         ) : (
-          <h1>Profile Not Found</h1>
+          <h1 className="text-lg font-medium text-center">Profile Not Found</h1>
         )}
       </div>
     );

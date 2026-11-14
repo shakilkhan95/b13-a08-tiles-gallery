@@ -8,7 +8,7 @@ import TileCard from "../shared/TileCard";
 
 const FeaturedTiles = ({ tiles }) => {
   return (
-    <div className="space-y-5 my-16 md:w-10/12 mx-auto">
+    <div className="space-y-5 my-16 w-10/12 mx-auto">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-semibold">Featured Tiles</h1>
         <Link href="/all-tiles" className="text-(--color-glaze) underline">

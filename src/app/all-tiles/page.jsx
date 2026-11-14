@@ -2,15 +2,17 @@ import SearchInput from "@/components/all-tiles-page/SearchInput";
 import TileCard from "@/components/shared/TileCard";
 import { getTilesDataBySearch } from "../../lib/data";
 import { Suspense } from "react";
-
+import { Spinner } from '@heroui/react';
 
 const AllTilesPage = async({searchParams}) => {
     
     return (
-      <div className="p-16 container mx-auto space-y-5">
+      <div className="p-10 md:p-16 container mx-auto space-y-5">
         <h1 className="text-2xl font-semibold">All Tiles</h1>
         <SearchInput />
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<div className="flex items-center gap-4 p-28 justify-center">
+                <Spinner />
+              </div>}>
           <TilesList searchParams={searchParams} />
         </Suspense>
       </div>

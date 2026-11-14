@@ -17,13 +17,17 @@ const AuthCTA = () => {
       <div>
         {session ? (
           <div className="flex gap-3">
-            <Avatar size="sm">
-              <Avatar.Image
-                alt={session?.user?.name}
-                src={session?.user?.image}
-              />
-              <Avatar.Fallback>{session?.user?.name.charAt(0)}</Avatar.Fallback>
-            </Avatar>
+            <Link href="/my-profile">
+              <Avatar size="sm">
+                <Avatar.Image
+                  alt={session?.user?.name}
+                  src={session?.user?.image}
+                />
+                <Avatar.Fallback>
+                  {session?.user?.name.charAt(0)}
+                </Avatar.Fallback>
+              </Avatar>
+            </Link>
             <Button size="sm" onClick={handleSignOut}>
               Sign Out
             </Button>

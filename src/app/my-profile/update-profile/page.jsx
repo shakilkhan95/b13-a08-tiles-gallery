@@ -24,10 +24,10 @@ const UpdateProfilePage = () => {
   };
 
   return (
-    <div className="p-28">
+    <div className="p-10 md:p-28 mt-10 md:mt-0">
       <Form
         onSubmit={handleUpdate}
-        className="flex flex-col gap-3 rounded-xl border bg-white p-4 shadow-sm"
+        className="flex max-w-lg mx-auto flex-col gap-3 rounded-xl border bg-white p-4 shadow-sm"
       >
         <h1 className="text-2xl font-semibold text-(--color-ink)/80">
           Update Profile

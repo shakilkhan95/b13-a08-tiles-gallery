@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <p className="text-sm font-medium uppercase tracking-wide text-(--color-plaster)/60 text-center">
+            <p className="text-sm font-medium uppercase tracking-wide text-(--color-plaster)/60 md:text-center">
               Follow us
             </p>
             <div className="mt-3 flex gap-3">

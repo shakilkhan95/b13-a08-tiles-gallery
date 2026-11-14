@@ -9,7 +9,7 @@ const TileDetailsPageContent = async({params}) => {
     const {id} = await params;
     const tile = await getTilesDataByID(id);
     return (
-      <div className="p-28">
+      <div className="px-5 py-10 md:p-28">
         <Card className="w-full items-stretch md:flex-row gap-10 rounded-md">
           <div className="flex-1 relative w-full shrink-0 overflow-hidden rounded-md">
             <Image

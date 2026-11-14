@@ -45,7 +45,7 @@ const SignInPage = () => {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="flex max-w-2xl mx-auto m-28 border p-4 rounded-md shadow-md bg-slate-50 flex-col gap-4"
+      className="flex w-10/12 max-w-lg mx-auto m-28 border p-4 rounded-md shadow-md bg-slate-50 flex-col gap-4"
     >
       <h1 className="text-xl font-semibold">Sign In</h1>
       <TextField
@@ -88,14 +88,14 @@ const SignInPage = () => {
         </Description>
         <FieldError />
       </TextField>
-      <div className="flex items-center justify-between md:flex-row gap-2">
+      <div className="flex items-center justify-between flex-col md:flex-row gap-2">
         <Button type="submit">
           <Check />
           Sign In
         </Button>
         <p>
           Do not have an account?{" "}
-          <Link href={"/signup"} className="underline">
+          <Link href={"/signup"} className="underline text-blue-500 font-medium">
             Sign Up here
           </Link>
         </p>
