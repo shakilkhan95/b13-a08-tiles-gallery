@@ -30,11 +30,22 @@ const TileDetailsPageContent = async({params}) => {
             <Card.Header className="gap-5">
               <Card.Title className="pe-8 text-2xl font-semibold">
                 {tile.title}
+                <p className="mt-1 text-(--color-ink)/60">By {tile.creator}</p>
               </Card.Title>
               <Card.Description className="space-y-2 text-xl">
                 {tile.description}
               </Card.Description>
-              <div className="mt-5">
+              <div className="mt-6 flex flex-wrap gap-2">
+                {tile.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border border-(--color-grout)/50 px-3 py-1 text-xs text-(--color-ink)/70"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="border-t border-(--color-grout)/40 pt-6 mt-5">
                 <p>
                   Material:{" "}
                   <span className="text-black font-medium">
@@ -58,9 +69,7 @@ const TileDetailsPageContent = async({params}) => {
         </Card>
 
         <Link href={"/all-tiles"} className="flex justify-center mt-5">
-          <Button variant="primary">
-            Go Back
-          </Button>
+          <Button variant="primary">Go Back</Button>
         </Link>
       </div>
     );
