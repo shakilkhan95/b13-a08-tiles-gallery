@@ -28,7 +28,7 @@ export const getTilesDataBySearch = async (search) => {
   const res = await fetch(
     "https://b13-a08-tiles-gallery-server.onrender.com/tiles",
     {
-      cache: "force-cache",
+      cache: "no-store",
     },
   );
   if (!res.ok) {
